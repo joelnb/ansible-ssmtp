@@ -1,31 +1,59 @@
-Role Name
-=========
+ssmtp
+=====
 
-A brief description of the role goes here.
+Installs and configures sSMTP
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+This role requires Ansible 1.4 or higher.
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+| Name                     | Default                  | Description                                                                                     |
+|--------------------------|--------------------------|-------------------------------------------------------------------------------------------------|
+| ssmtp_root               | postmaster               | The person who gets all mail for userids < 1000. Make this empty to disable rewriting.          |
+| ssmtp_mailhub            | mail                     | The place where the mail goes. The actual machine name is required no MX records are consulted. |
+| ssmtp_rewrite_domain     | "{{ ansible_domain }}"   | Where will the mail seem to come from?                                                          |
+| ssmtp_hostname           | "{{ ansible_hostname }}" | The full hostname                                                                               |
+| ssmtp_from_live_override | 'NO'                     | Are users allowed to set their own From: address? ('YES' or 'NO')                               |
+| ssmtp_revaliases         | []                       | Array of hashes containing reverse aliases information                                          |
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+None
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Install sSMTP
+```
+- hosts: all
+  roles:
+    - { role: kbrebanov.ssmtp }
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
+Install sSMTP specifying a mailhub
+```
+- hosts: all
+  roles:
+    - { role: kbrebanov.ssmtp, ssmtp_mailhub: mail.example.com }
+```
+
+Install sSMTP specifying reverse alias
+```
+- hosts: all
+  vars:
+    ssmtp_revaliases:
+      - local_account: root
+        outgoing_address: your_login@your.domain
+        mailhub: mailhub.your.domain
+        port: 25
+  roles:
+    - kbrebanov.ssmtp
+```
 
 License
 -------
@@ -35,4 +63,4 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Kevin Brebanov

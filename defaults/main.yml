@@ -1,2 +1,14 @@
 ---
 # defaults file for ssmtp
+
+ssmtp_root: postmaster
+ssmtp_mailhub: mail
+ssmtp_rewrite_domain: "{{ ansible_domain }}"
+ssmtp_hostname: "{{ ansible_hostname }}"
+ssmtp_from_live_override: 'NO'
+
+ssmtp_revaliases:
+  - local_account: root
+    outgoing_address: your_login@your.domain
+    mailhub: mailhub.your.domain
+    port: 25
