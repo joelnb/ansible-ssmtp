@@ -1,7 +1,7 @@
 ssmtp
 =====
 
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-kbrebanov.ssmtp-660198.svg)](https://galaxy.ansible.com/list#/roles/3992)
+[![Ansible Role](https://img.shields.io/ansible/role/3992.svg)](https://galaxy.ansible.com/list#/roles/3992)
 
 Installs and configures sSMTP
 
