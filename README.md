@@ -1,7 +1,7 @@
 ssmtp
 =====
 
-[![Ansible Role](https://img.shields.io/ansible/role/3992.svg)](https://galaxy.ansible.com/list#/roles/3992)
+[![Build Status](https://travis-ci.org/kbrebanov/ansible-ssmtp.svg?branch=master)](https://travis-ci.org/kbrebanov/ansible-ssmtp)
 
 Installs and configures sSMTP
 
