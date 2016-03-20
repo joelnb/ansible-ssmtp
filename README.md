@@ -21,6 +21,11 @@ Role Variables
 | ssmtp_hostname           | "{{ ansible_hostname }}" | The full hostname                                                                               |
 | ssmtp_from_live_override | 'NO'                     | Are users allowed to set their own From: address? ('YES' or 'NO')                               |
 | ssmtp_revaliases         | []                       | Array of hashes containing reverse aliases information                                          |
+| ssmtp_auth_user          | ''                       | Authentication username                                                                         |
+| ssmtp_auth_pass          | ''                       | Authentication password                                                                         |
+| ssmtp_auth_method        | ''                       | Authentication method                                                                           |
+| ssmtp_use_tls            | false                    | Enable or disable TLS                                                                           |
+| ssmtp_use_starttls       | false                    | Enable or disable STARTTLS                                                                      |
 
 Dependencies
 ------------

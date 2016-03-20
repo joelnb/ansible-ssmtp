@@ -6,6 +6,11 @@ ssmtp_mailhub: mail
 ssmtp_rewrite_domain: "{{ ansible_domain }}"
 ssmtp_hostname: "{{ ansible_hostname }}"
 ssmtp_from_live_override: 'NO'
+ssmtp_auth_user: ''
+ssmtp_auth_pass: ''
+ssmtp_auth_method: ''
+ssmtp_use_tls: false
+ssmtp_use_starttls: false
 
 ssmtp_revaliases:
   - local_account: root
