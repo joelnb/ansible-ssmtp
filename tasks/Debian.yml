@@ -3,5 +3,5 @@
 
 - name: Install sSMTP packages
   apt: name={{ item }} state=present update_cache=yes
-  with_items: ssmtp_packages
+  with_items: "{{ ssmtp_packages }}"
   tags: ssmtp
