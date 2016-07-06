@@ -1,5 +1,5 @@
 ---
-# tasks file for ssmtp (Ubuntu specific)
+# tasks file for ssmtp (Debian family specific)
 
 - name: Install sSMTP packages
   apt: name={{ item }} state=present update_cache=yes
