@@ -9,7 +9,7 @@
 
 - name: Template SSMTP configuration file
   template:
-    source: etc/ssmtp/ssmtp.conf.j2
+    src: etc/ssmtp/ssmtp.conf.j2
     dest: /etc/ssmtp/ssmtp.conf
     owner: root
     group: root
@@ -25,7 +25,7 @@
 
 - name: Template systemd email service
   template:
-    source: etc/systemd/system/status-email-user@.service.j2
+    src: etc/systemd/system/status-email-user@.service.j2
     dest: /etc/systemd/system/status-email-user@.service
     owner: root
     group: root
@@ -33,7 +33,7 @@
 
 - name: Copy systemd email script
   copy:
-    source: usr/local/sbin/systemd-email
+    src: usr/local/sbin/systemd-email
     dest: /usr/local/sbin/systemd-email
     owner: root
     group: root
