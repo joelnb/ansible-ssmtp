@@ -25,7 +25,7 @@ The following variables can be provided to this role to customise elements of th
 ```
 - hosts: all
   roles:
-    - { role: joelnb.ssmtp }
+    - { role: joelnb.ansible_ssmtp }
 ```
 
 ## Contributors
