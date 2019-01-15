@@ -20,6 +20,14 @@ The following variables can be provided to this role to customise elements of th
 | ssmtp_use_starttls        | true                      | Use STARTTLS to connect to the SMTP server.                                                                   |
 | ssmtp_revaliases          | []                        | An array of the form {'local_account': '', 'outgoing_address': ''} to specify aliases for local usernames.    |
 
+## Example Playbook
+
+```
+- hosts: all
+  roles:
+    - { role: joelnb.ssmtp }
+```
+
 ## Contributors
 
 - [Kevin Brebanov](https://github.com/kbrebanov) (Original Author - see [kbrebanov/ansible-ssmtp](https://github.com/kbrebanov/ansible-ssmtp))
