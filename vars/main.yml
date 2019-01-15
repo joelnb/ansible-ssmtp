@@ -1,5 +1,0 @@
----
-# vars file for ssmtp
-
-ssmtp_packages:
-  - ssmtp
