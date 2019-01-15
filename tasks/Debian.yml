@@ -1,7 +1,10 @@
 ---
-# tasks file for ssmtp (Debian family specific)
+- name: Install SSMTP
+  apt:
+    name: ssmtp
+    state: present
 
-- name: Install sSMTP packages
-  apt: name={{ item }} state=present update_cache=yes
-  with_items: "{{ ssmtp_packages }}"
-  tags: ssmtp
+- name: Install mailutils
+  apt:
+    name: mailutils
+    state: present

@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+
+{% for revalias in ssmtp_revaliases %}
+{{ revalias.local_account }}:{{ revalias.outgoing_address }}:{{ ssmtp_mailhub }}
+{% endfor %}

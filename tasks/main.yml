@@ -1,32 +1,40 @@
 ---
-# tasks file for ssmtp
-
-- name: Include distribution specific variables
-  include_vars: "{{ ansible_os_family }}.yml"
-  tags: ssmtp
-
-- include: RedHat.yml
+- name: Include vars for RedHat-based distributions
+  include: RedHat.yml
   when: ansible_os_family == "RedHat"
-  tags: ssmtp
 
-- include: Debian.yml
+- name: Include vars for Debian-based distributions
+  include: Debian.yml
   when: ansible_os_family == "Debian"
-  tags: ssmtp
+
+- name: Template SSMTP configuration file
+  template:
+    source: etc/ssmtp/ssmtp.conf.j2
+    dest: /etc/ssmtp/ssmtp.conf
+    owner: root
+    group: root
+    mode: 0600
 
 - name: Create sSMTP revaliases file
-  template: >
-    src=revaliases.j2
-    dest=/etc/ssmtp/revaliases
-    owner=root
-    group=root
-    mode=0644
-  tags: ssmtp
+  template:
+    src: etc/ssmtp/revaliases.j2
+    dest: /etc/ssmtp/revaliases
+    owner: root
+    group: root
+    mode: 0644
 
-- name: Create sSMTP configuration file
-  template: >
-    src=ssmtp.conf.j2
-    dest=/etc/ssmtp/ssmtp.conf
-    owner=root
-    group=root
-    mode=0640
-  tags: ssmtp
+- name: Template systemd email service
+  template:
+    source: etc/systemd/system/status-email-user@.service.j2
+    dest: /etc/systemd/system/status-email-user@.service
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy systemd email script
+  copy:
+    source: usr/local/sbin/systemd-email
+    dest: /usr/local/sbin/systemd-email
+    owner: root
+    group: root
+    mode: 0755
