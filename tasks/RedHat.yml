@@ -3,3 +3,7 @@
   yum:
     name: ssmtp
     state: present
+  register: yum_result
+  until: yum_result is success
+  retries: 3
+  delay: 2
