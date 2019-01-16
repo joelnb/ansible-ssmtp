@@ -15,7 +15,7 @@
     group: root
     mode: 0600
 
-- name: Create sSMTP revaliases file
+- name: Template SSMTP revaliases file
   template:
     src: etc/ssmtp/revaliases.j2
     dest: /etc/ssmtp/revaliases
