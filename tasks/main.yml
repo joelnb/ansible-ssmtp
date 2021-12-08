@@ -1,10 +1,10 @@
 ---
 - name: Include vars for RedHat-based distributions
-  include: RedHat.yml
+  include_tasks: RedHat.yml
   when: ansible_os_family == "RedHat"
 
 - name: Include vars for Debian-based distributions
-  include: Debian.yml
+  include_tasks: Debian.yml
   when: ansible_os_family == "Debian"
 
 - name: Template SSMTP configuration file
