@@ -1,5 +1,7 @@
 # ansible-ssmtp
 
+**Note: sSMTP is unmaintained. Consider using something like msmtp or OpenSMTPD instead.**
+
 Ansible role to setup SSMTP to forward to a remote SMTP server and configure a systemd unit which can be used to send an email when a service fails.
 
 ## Variables
